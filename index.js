@@ -9,7 +9,12 @@ app.set('views',path.join(__dirname, '/views'))
 
 app.get('/', (req, res) => {
     const title = "Home 🏠"
-    res.render('home', {title:title})
+    res.render('home', {title })
+})
+app.get('/Projects', (req, res) => {
+    const title = "Projects 🗄️"
+    const projects = ['project1', 'project2', 'project3']
+    res.render('Projects', {title, projects})
 })
 
 

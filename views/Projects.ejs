@@ -1,0 +1,11 @@
+<%- include('./partials/head') %>
+<%- include('./partials/navbar') %>
+
+<div class="titleWrapper"><h1>My Projects</h1></div>
+
+<div class="projectGridContainer">
+   <% for(let project of projects){ %>
+        <div class="pGridItem"><%= project %></div>
+    <% } %>
+</div>
+<%- include('./partials/footer') %>

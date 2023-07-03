@@ -1,0 +1,46 @@
+.projectGridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.pGridItem {
+  background-color: #e0e0e0;
+  padding: 20px;
+}
+footer{
+    margin-top: 20vh;
+    padding-top: 2vh;
+}
+.center {
+  margin: auto;
+  width: 50%;
+  }
+  .titleWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logo {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.github-logo,
+.twitter-logo {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.github-logo {
+  background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
+}
+
+.twitter-logo {
+  background-image: url('https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-download-img-1.jpg.twimg.1920.jpg');
+}
