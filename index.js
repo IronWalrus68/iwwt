@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const projectsData = require('./projectsData.json')
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -13,8 +14,9 @@ app.get('/', (req, res) => {
 })
 app.get('/Projects', (req, res) => {
     const title = "Projects 🗄️"
-    const projects = ['project1', 'project2', 'project3']
-    res.render('Projects', {title, projects})
+    const pData = projectsData
+    console.log(pData)
+    res.render('Projects', {title, pData})
 })
 
 

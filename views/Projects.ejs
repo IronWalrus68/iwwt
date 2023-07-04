@@ -4,8 +4,15 @@
 <div class="titleWrapper"><h1>My Projects</h1></div>
 
 <div class="projectGridContainer">
-   <% for(let project of projects){ %>
-        <div class="pGridItem"><%= project %></div>
+   <% for(let pDatas in pData) { %>
+        <% const project = pData[pDatas]; %>
+        <div class="pGridItem">
+            <h2><%= project.projectName %></h2>
+            <a href="<%= project.githubLink %>">
+                <img src="<%= project.projectImg %>" alt=""></a>
+            <a href="<%= project.githubLink %>">GitHub</a>
+            <a href="<%= project.liveSiteLink %>">Live Site</a>
+        </div>
     <% } %>
 </div>
 <%- include('./partials/footer') %>
