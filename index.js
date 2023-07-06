@@ -15,9 +15,13 @@ app.get('/', (req, res) => {
 app.get('/Projects', (req, res) => {
     const title = "Projects 🗄️"
     const pData = projectsData
-    console.log(pData)
     res.render('Projects', {title, pData})
 })
+app.get('/info', (req, res) => {
+    const title = "info"
+    res.render('info', {title})
+})
+
 
 
 

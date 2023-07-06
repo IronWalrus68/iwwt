@@ -8,6 +8,12 @@
   grid-template-columns: repeat(2, 1fr);
 }
 } 
+.sidePaddingWrapper{
+  padding: 0 10vw 0 10vw;
+}
+.textPaddingWrapper{
+  padding-left: 1vw;
+}
 .pGridItem {
   background-color: #e0e0e0;
   padding: 20px;
@@ -33,7 +39,8 @@ footer{
 }
 
 .github-logo,
-.twitter-logo {
+.twitter-logo,
+.linkedin-logo {
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -42,11 +49,14 @@ footer{
 }
 
 .github-logo {
-  background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
+  background-image: url('/images/sociallogos/github.png');
 }
 
 .twitter-logo {
-  background-image: url('https://about.twitter.com/content/dam/about-twitter/en/brand-toolkit/brand-download-img-1.jpg.twimg.1920.jpg');
+  background-image: url('/images/sociallogos/Twitter.png');
+}
+.linkedin-logo {
+  background-image: url('/images/sociallogos/linkedin.png');
 }
 .pGridItem{
   display: flex;
@@ -55,7 +65,7 @@ footer{
 }
 .pGridItem img{
   width: 100%;
-  height: 300px;
+  height: 30vh;
 }
 .pGridItem h2{
   text-decoration: underline;
