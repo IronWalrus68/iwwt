@@ -1,3 +1,20 @@
+/* css styles that do things */
+.sidePaddingWrapper{ /* add's padding either side of the children. used for creating space */
+  padding: 0 10vw 0 10vw;
+}
+.textPaddingWrapper{ /* adds a little padding to the child, creates some space. */
+  padding-left: 1vw;
+}
+
+  .centerWrapper{/* puts child in the center of the screen ||| use to be called titleWrapper */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* project grid container / mobile reshuffle */
 .projectGridContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -6,38 +23,37 @@
 @media (max-width: 540px) {
   .projectGridContainer {
   grid-template-columns: repeat(2, 1fr);
-}
 } 
-.sidePaddingWrapper{
-  padding: 0 10vw 0 10vw;
 }
-.textPaddingWrapper{
-  padding-left: 1vw;
-}
+/* grid styles */
 .pGridItem {
   background-color: #e0e0e0;
   padding: 20px;
 }
-footer{
+footer{ /* add some space to the footer so it's not scrunched up */
     margin-top: 20vh;
     padding-top: 2vh;
 }
-.center {
-  margin: auto;
-  width: 50%;
-  }
-  .titleWrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-  }
+.pGridItem{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pGridItem img{
+  width: 100%;
+  height: 30vh;
+}
+.pGridItem h2{
+  text-decoration: underline;
+}
 
-  .logo {
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* social media logos for nav */
+.logo {
   display: inline-block;
   margin-right: 10px;
 }
-
 .github-logo,
 .twitter-logo,
 .linkedin-logo {
@@ -57,16 +73,4 @@ footer{
 }
 .linkedin-logo {
   background-image: url('/images/sociallogos/linkedin.png');
-}
-.pGridItem{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.pGridItem img{
-  width: 100%;
-  height: 30vh;
-}
-.pGridItem h2{
-  text-decoration: underline;
 }

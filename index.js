@@ -21,7 +21,10 @@ app.get('/info', (req, res) => {
     const title = "info"
     res.render('info', {title})
 })
-
+app.get('/music', (req, res) => {
+    const title = 'Music'
+    res.render('music', {title})
+})
 
 
 
