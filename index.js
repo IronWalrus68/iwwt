@@ -5,6 +5,8 @@ const projectsData = require('./projectsData.json')
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.use('/fonts', express.static(path.join(__dirname, 'node_modules', 'Poppins')));
+
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, '/views'))
 

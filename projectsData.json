@@ -34,6 +34,11 @@
         "projectImg": "/images/skyrim-roulette.png",
         "githubLink": "https://github.com/IronWalrus68/skyrim-roulette",
         "liveSiteLink": "https://ironwalrus68.github.io/skyrim-roulette/"
+    },
+    "project7":{
+        "projectName": "picture_of_the_day",
+        "projectImg": "/images/picture_of_the_day.png"
+        
     }
 }
 
