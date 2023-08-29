@@ -88,3 +88,28 @@ footer{ /* add some space to the footer so it's not scrunched up */
 .linkedin-logo {
   background-image: url('/images/sociallogos/linkedin.png');
 }
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* homePage */
+.mainPageH1{
+    position: absolute; /* Takes the text out of the document flow */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+}
+.mainPageTitleWrapper{
+   position: relative; /* Sets a reference for the absolutely positioned text */
+    width: 100%; /* Takes full width, but adjust as yuh see fit */
+    height: auto;
+}
+.mainPageTitleWrapper img{
+   width: 100%;
+    height: auto;
+    display: block;
+    font-weight: 300; /* Or 400 for 'normal' weight */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    letter-spacing: 1px; 
+    line-height: 1.4; /* Adjust as needed */
+}

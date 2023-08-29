@@ -37,8 +37,9 @@
     },
     "project7":{
         "projectName": "picture_of_the_day",
-        "projectImg": "/images/picture_of_the_day.png"
-        
+        "projectImg": "/images/picture_of_the_day.png",
+        "githubLink": "potd",
+        "liveSiteLink": "/potd"
     }
 }
 

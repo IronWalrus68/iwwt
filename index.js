@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const projectsData = require('./projectsData.json')
+const privateKeys = require('./privateKeys')
+let potdApiData;
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -23,14 +25,13 @@ app.get('/info', (req, res) => {
     const title = "info"
     res.render('info', {title})
 })
-app.get('/music', (req, res) => {
-    const title = 'Music'
-    res.render('music', {title})
+app.get('/potd', async (req, res) => {
+    const title = 'Picture of the day'
+    if (!potdApiData) potdApiData = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${privateKeys.potdKey}`).then(d => d.json())
+    const potdData = potdApiData
+    res.render('potd', {title, potdData})
 })
-
-
-
-
+// data
 
 
 
