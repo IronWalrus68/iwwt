@@ -2,10 +2,23 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const projectsData = require('./projectsData.json')
+const project = require('./models/projects');
 const privateKeys = require('./privateKeys')
 let potdApiData;
+const mongoose = require('mongoose');
+const methodOverride = require('method-override')
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(methodOverride('_method'))
+
+mongoose.connect('mongodb://127.0.0.1:27017/shopApp')
+.then(() => {
+    console.log('Connection Open')
+})
+.catch(err => {
+    console.log('error connecting')
+    console.log(err)
+})
 
 app.use('/fonts', express.static(path.join(__dirname, 'node_modules', 'Poppins')));
 
