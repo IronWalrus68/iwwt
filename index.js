@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     res.render('home', {title })
 })
 
-app.get('/Projects', async (req, res) => {
+app.get('/Projects/', async (req, res) => {
     const title = "Projects 🗄️"
     const pData = await project.find({})
     res.render('Projects', {title, pData})
