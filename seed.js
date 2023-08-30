@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const project = require('./models/projects');
-mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
+mongoose.connect('mongodb://127.0.0.1:27017/iwwt')
 .then(() => {
     console.log('Connection Open')
 })

@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const projectsData = require('./projectsData.json')
 const project = require('./models/projects');
 const privateKeys = require('./privateKeys')
 let potdApiData;
@@ -11,7 +10,7 @@ const methodOverride = require('method-override')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(methodOverride('_method'))
 
-mongoose.connect('mongodb://127.0.0.1:27017/shopApp')
+mongoose.connect('mongodb://127.0.0.1:27017/iwwt')
 .then(() => {
     console.log('Connection Open')
 })
@@ -29,22 +28,24 @@ app.get('/', (req, res) => {
     const title = "Home 🏠"
     res.render('home', {title })
 })
-app.get('/Projects', (req, res) => {
+
+app.get('/Projects', async (req, res) => {
     const title = "Projects 🗄️"
-    const pData = projectsData
+    const pData = await project.find({})
     res.render('Projects', {title, pData})
 })
+
 app.get('/info', (req, res) => {
     const title = "info"
     res.render('info', {title})
 })
+
 app.get('/potd', async (req, res) => {
     const title = 'Picture of the day'
     if (!potdApiData) potdApiData = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${privateKeys.potdKey}`).then(d => d.json())
     const potdData = potdApiData
     res.render('potd', {title, potdData})
 })
-// data
 
 
 
