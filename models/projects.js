@@ -13,6 +13,10 @@ const projectSchema = new mongoose.Schema({
     },
     liveSiteLink: {
         type: String
+    },
+    isHighLighted: {
+        type: Boolean,
+        default: false
     }
 })
 const Project = mongoose.model('Project', projectSchema)
