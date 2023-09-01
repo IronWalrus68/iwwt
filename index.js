@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-const project = require('./models/projects');
+const Project = require('./models/projects');
 const privateKeys = require('./privateKeys')
 let potdApiData;
 const mongoose = require('mongoose');
@@ -20,6 +20,9 @@ mongoose.connect('mongodb://127.0.0.1:27017/iwwt')
 })
 
 app.use('/fonts', express.static(path.join(__dirname, 'node_modules', 'Poppins')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, '/views'))
@@ -29,9 +32,9 @@ app.get('/', (req, res) => {
     res.render('home', {title })
 })
 
-app.get('/Projects/', async (req, res) => {
+app.get('/Projects', async (req, res) => {
     const title = "Projects 🗄️"
-    const pData = await project.find({})
+    const pData = await Project.find({})
     res.render('Projects', {title, pData})
 })
 
@@ -47,9 +50,31 @@ app.get('/potd', async (req, res) => {
     res.render('potd', {title, potdData})
 })
 
+app.get('/projects/index', async (req, res) => {
+    const projectData = await Project.find({})
+    console.log(projectData)
+    res.render('projects/indexProject', {projectData})
+})
+
+app.get('/projects/new', (req, res) =>{
+    res.render('projects/newProject')
+})
+
+app.post('/projects', async (req, res) => {
+    const { password } = req.body; 
+    if(password === 'password'){
+    const newProject = new Project(req.body);
+    await newProject.save()
+    res.redirect('projects/index')
+    } else {console.log({password}); res.send('Password is incorrect.');}
+})
 
 
-
+// not tested yet
+app.get('/projects/:id/edit', async(req, res) => {
+    const {id} = req.params;
+    res.render('products/editProject')
+})
 // keep this at the bottom
 app.listen(3000, ()  => {
     console.log('listening on port 3000')
