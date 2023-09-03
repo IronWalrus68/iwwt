@@ -10,7 +10,7 @@
     <a href="/projects/new">New Project</a>
    <ul>
     <% for(let project of projectData) { %>
-        <li><a href="/projects/<%= project._id %>"><%= project.projectName %></a></li>
+        <li><a href="/projects/<%= project._id %>/edit"><%= project.projectName %></a></li>
     <% } %>
    </ul>
 </body>

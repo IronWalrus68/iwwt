@@ -52,7 +52,6 @@ app.get('/potd', async (req, res) => {
 
 app.get('/projects/index', async (req, res) => {
     const projectData = await Project.find({})
-    console.log(projectData)
     res.render('projects/indexProject', {projectData})
 })
 
@@ -66,15 +65,35 @@ app.post('/projects', async (req, res) => {
     const newProject = new Project(req.body);
     await newProject.save()
     res.redirect('projects/index')
-    } else {console.log({password}); res.send('Password is incorrect.');}
+    } else {res.send('Password is incorrect.');}
 })
 
-
-// not tested yet
 app.get('/projects/:id/edit', async(req, res) => {
     const {id} = req.params;
-    res.render('products/editProject')
+    const projectData = await Project.findById(id)
+    console.log(projectData)
+    console.log(projectData.isHighLighted)
+    res.render('projects/editProject', {projectData})
 })
+
+app.put('/projects/:id', async(req, res) => {
+    const { password } = req.body; 
+    if(password === 'password'){
+    const {id} = req.params;
+    const update = await Project.findByIdAndUpdate(id, req.body, {runValidators: true, new: true})
+    res.redirect('/projects/index')
+    } else {res.send('Password is incorrect.');}
+})
+
+app.delete('/projects/:id', async(req, res)=>{
+    const { password } = req.body; 
+    if(password === 'password'){
+    const {id} = req.params;
+   const deletedProjects = await Project.findByIdAndDelete(id)
+    res.redirect('/projects/index')
+    } else {res.send('Password is incorrect.');}
+})
+
 // keep this at the bottom
 app.listen(3000, ()  => {
     console.log('listening on port 3000')
