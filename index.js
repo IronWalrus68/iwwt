@@ -50,6 +50,11 @@ app.get('/potd', async (req, res) => {
     res.render('potd', {title, potdData})
 })
 
+app.get('/api', (req, res)=> {
+    const title = 'API';
+    res.render('api', {title})
+})
+
 app.get('/projects/index', async (req, res) => {
     const projectData = await Project.find({})
     res.render('projects/indexProject', {projectData})
@@ -71,8 +76,6 @@ app.post('/projects', async (req, res) => {
 app.get('/projects/:id/edit', async(req, res) => {
     const {id} = req.params;
     const projectData = await Project.findById(id)
-    console.log(projectData)
-    console.log(projectData.isHighLighted)
     res.render('projects/editProject', {projectData})
 })
 
