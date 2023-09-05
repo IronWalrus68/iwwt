@@ -54,7 +54,7 @@ app.get('/api', (req, res)=> {
     const title = 'API';
     res.render('api', {title})
 })
-
+// projects back end api stuffs
 app.get('/projects/index', async (req, res) => {
     const projectData = await Project.find({})
     res.render('projects/indexProject', {projectData})
