@@ -17,6 +17,8 @@
     <br>
     <input type="text" name="projectImg" id="projectImg" required>
     <br>
+     <input type="text" id="projectImg" placeholder="Enter image URL here" name="projectImg" oninput="updateImage(this.value)">
+    <br>
     <label for="projectLink">project Link</label>
     <br>
     <input type="text" name="projectLink" id="projectLink">
@@ -35,5 +37,18 @@
     <button>Make New Project.</button>
     </form>
     <a href="/projects/index">back</a>
+    <br>
+<img id="displayImage" src="" alt="Image will display here">
+
+<script>
+    function updateImage(imageUrl) {
+        if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png') || imageUrl.endsWith('.gif')) {
+            document.getElementById('displayImage').src = imageUrl;
+        } else {
+            // Optional: You can provide feedback to user if the link isn't a valid image URL
+        }
+    }
+</script>
+
 </body>
 </html>

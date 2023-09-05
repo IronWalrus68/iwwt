@@ -15,8 +15,8 @@
     <!-- add value="data from the db" -->
     <br>
     <label for="projectImg">project Img (url)</label>
-    <br>
-    <input type="text" name="projectImg" id="projectImg" required value="<%= projectData.projectImg %>">
+       <br>
+     <input type="text" id="projectImg" placeholder="Enter image URL here" name="projectImg" value="<%= projectData.projectImg %>" oninput="updateImage(this.value)">
     <br>
     <label for="projectLink">project Link</label>
     <br>
@@ -42,5 +42,24 @@
     <button>Delete</button>
     </form>
     <a href="/projects/index">back</a>
+        <br>
+<img id="displayImage" src="" alt="Image will display here">
+
+<script>
+    function updateImage(imageUrl) {
+        if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png') || imageUrl.endsWith('.gif')) {
+            document.getElementById('displayImage').src = imageUrl;
+        } else {
+            // Optional: You can provide feedback to user if the link isn't a valid image URL
+        }
+    }
+    function initializeImage() {
+        const initialUrl = document.getElementById('imageUrl').value;
+        if (initialUrl) {
+            updateImage(initialUrl);
+        }
+    }
+</script>
+
 </body>
 </html>
