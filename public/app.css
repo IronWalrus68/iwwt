@@ -88,28 +88,105 @@ footer{ /* add some space to the footer so it's not scrunched up */
 .linkedin-logo {
   background-image: url('/images/sociallogos/linkedin.png');
 }
-
+.widthSet{
+  /* this is just to try and fix the display on the home page. make the heigt match top from openingHeaderShadow*/
+  height: 3.5rem !important;
+}
 /* ---------------------------------------------------------------------------------------------------- */
 
 /* homePage */
-.mainPageH1{
-    position: absolute; /* Takes the text out of the document flow */
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    font-size: 5em;
+body {
+    /* background: linear-gradient(-45deg, rgb(87, 87, 87) 0%, #070004); */
+    background-color: #707070;
+    margin: 0;
+    overflow: hidden;
 }
-.mainPageTitleWrapper{
-   position: relative; /* Sets a reference for the absolutely positioned text */
-    width: 100%; /* Takes full width, but adjust as yuh see fit */
-    height: auto;
+
+#openingHeader{
+  background-color: #221d20;
+  color: #ffffff;
+  height: 40rem;
+  width: 100vw;
+  position: relative;
 }
-.mainPageTitleWrapper img{
-   width: 100%;
-    height: auto;
-    display: block;
-    font-weight: 300; /* Or 400 for 'normal' weight */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    letter-spacing: 1px; 
-    line-height: 1.4; /* Adjust as needed */
+#openingHeaderShadow{
+  height: 40rem;
+  width: 30%;
+  position: absolute;
+  top: 3.5rem;
+  left: 80%;
+  background-color: #ff55d4;
+}
+#openingHeader h2,#openingHeader h1,#openingHeader p{
+  position: absolute;
+  left: 15%;
+}
+#openingHeader h1{top: 50%;}
+#openingHeader h2{top: 40%;}
+#openingHeader p{top: 62%; max-width: 40%;}
+/* ---------------------------------------------------------------------------------------------------- */
+/* asci walrus */
+#walrusWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50%;
+    width: 25%;
+    /* padding-bottom: 50%; /*as long as this matches the width the height should match the width*/
+    /* border: solid pink 2px; */
+    border-radius: 300px;
+    padding-bottom: 1rem;
+    position: absolute;
+    top: 10em;
+    left: 67%;
+    background-color: #221d20;
+}
+
+.asciRus {
+    font-size: 3rem;
+    font-family: monospace;
+    position: relative;
+    color: white; /* Default text color */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Initial shadow */
+    animation: colorChange 3s infinite, shadowRipple 3s infinite;
+}
+
+@keyframes colorChange {
+    0%, 100% {
+        color: white;
+    }
+    50% {
+        color: rgb(255, 0, 212);
+    }
+}
+
+@keyframes shadowRipple {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Delay for each div to make the effect ripple from top-left to bottom-right */
+#walrusWrapper .font:nth-child(1) {
+    animation-delay: 0s, 0s;
+}
+
+#walrusWrapper .font:nth-child(2) {
+    animation-delay: 0.2s, 0.2s;
+}
+
+#walrusWrapper .font:nth-child(3) {
+    animation-delay: 0.4s, 0.4s;
+}
+
+#walrusWrapper .font:nth-child(4) {
+    animation-delay: 0.6s, 0.6s;
+}
+
+#walrusWrapper .font:nth-child(5) {
+    animation-delay: 0.8s, 0.8s;
 }
