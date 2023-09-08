@@ -5,7 +5,8 @@ body {
     background-color: #707070;
     color: white;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 footer{ /* add some space to the footer so it's not scrunched up */
     margin-top: 5vh;

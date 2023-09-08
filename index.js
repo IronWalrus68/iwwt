@@ -27,9 +27,10 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views',path.join(__dirname, '/views'))
 
-app.get('/', (req, res) => {
+app.get('/', async(req, res) => {
     const title = "Home 🏠"
-    res.render('home', {title })
+    const pData = await Project.find({})
+    res.render('home', {title, pData })
 })
 
 app.get('/Projects', async (req, res) => {
