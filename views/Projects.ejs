@@ -3,30 +3,19 @@
 
 <div class="centerWrapper"><h1>My Projects</h1></div>
 
+
 <div class="projectGridContainer">
    <% for(let pDatas in pData) { %>
-        <% const project = pData[pDatas]; %>
-        <div class="pGridItem">
-            <h2><%= project.projectName %></h2>
-            <a href="<%= project.githubLink %>">
-                <img src="<%= project.projectImg %>" alt=""></a>
-            <a href="<%= project.projectLink %>">GitHub</a>
-            <a href="<%= project.liveSiteLink %>">Live Site</a>
+    <% const project = pData[pDatas]; %>
+    <div class="card mb-4 shadow-sm" style="width: 18rem;">
+        <img src="<%= project.projectImg %>" class="card-img-top" alt="..." style="height: 10rem; object-fit: cover;">
+        <div class="card-body">
+            <h5 class="card-title"><%= project.projectName %></h5>
+            <a href="<%= project.projectLink %>" class="btn btn-primary me-2 mb-2">Project Link</a>
+            <a href="<%= project.liveSiteLink %>" class="btn btn-secondary mb-2">Live Site</a>
         </div>
-    <% } %>
-</div>
-<div class="projectGridContainer">
-   <% for(let pDatas in pData) { %>
-        <% const project = pData[pDatas]; %>
-        <div class="card" style="width: 18rem;">
-  <img src="<%= project.projectImg %>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= project.projectName %></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="<%= project.projectLink %>" class="btn btn-primary">Project Link</a>
-    <a href="<%= project.liveSiteLink %>" class="btn btn-primary">Live Site</a>
-  </div>
-</div>
-    <% } %>
+    </div>
+<% } %>
+
 </div>
 <%- include('./partials/footer') %>
