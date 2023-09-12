@@ -159,10 +159,18 @@ footer{ /* add some space to the footer so it's not scrunched up */
     padding-bottom: 1rem;
     position: absolute;
     top: 10em;
-    left: 67%;
+    left: -20%;
     background-color: #221d20;
+    animation: flyAcross 2s forwards;
 }
-
+@keyframes flyAcross {
+    from {
+        left: -20;
+    }
+    to {
+        left: 67%;
+    }
+}
 .asciRus {
     font-size: 3rem;
     font-family: monospace;
