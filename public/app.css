@@ -142,6 +142,7 @@ footer{ /* add some space to the footer so it's not scrunched up */
 #openingHeader h2,#openingHeader h1,#openingHeader p{
   position: absolute;
   left: 15%;
+  animation: fadeIn 4s forwards;
 }
 #openingHeader h1{top: 50%;}
 #openingHeader h2{top: 40%;}
@@ -161,7 +162,7 @@ footer{ /* add some space to the footer so it's not scrunched up */
     top: 10em;
     left: -20%;
     background-color: #221d20;
-    animation: flyAcross 2s forwards;
+    animation: flyAcross 3s forwards;
 }
 @keyframes flyAcross {
     from {
@@ -170,6 +171,14 @@ footer{ /* add some space to the footer so it's not scrunched up */
     to {
         left: 67%;
     }
+}
+@keyframes fadeIn {
+  from{
+    color: #ffffff00;
+  }
+  to {
+    color: #ffffff;
+  }
 }
 .asciRus {
     font-size: 3rem;
