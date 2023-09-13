@@ -42,10 +42,33 @@
 <span class="divider"><div class="dividerDot"></div><div class="dividerDot"></div><div class="dividerLine"></div></span>
 
 <h3 class="homeH3Styles">Projects</h3>
+<div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
+    <% for(let pDatas in pData) { %>
+        <% const project = pData[pDatas]; %>
+        <div class="m-3">
+            <a href="<%= project.projectLink %>" title="<%= project.projectName %>">
+                <img src="<%= project.projectImg %>" alt="<%= project.projectName %>" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </a>
+        </div>
+    <% } %>
+</div>
+
+
 
 <span class="divider"><div class="dividerLine"></div><div class="dividerDot"></div><div class="dividerDot"></div></span>
 
-<h3 class="homeH3Styles">API page</h3>
+<!-- <h3 class="homeH3Styles">API page</h3> -->
+<section class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2>API page</h2>
+            <p>
+            My API offers a gateway to access data from my website's database. It's designed not only for data retrieval but also to assist newcomers in understanding and engaging with APIs. Click the button below to learn more.
+            </p>
+            <a href="/api" class="btn btn-primary mt-3">Learn More</a>
+        </div>
+    </div>
+</section>
 
 <span class="divider"><div class="dividerDot"></div><div class="dividerDot"></div><div class="dividerLine"></div></span>
 
