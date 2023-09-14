@@ -112,6 +112,12 @@ app.delete('/projects/:id', async (req, res) => {
 
 app.post('/email', async (req, res) => {
     try {
+        // Check for honeypot
+        if (req.body.honeypot) {
+            // If honeypot is filled out, it's probably a bot.
+            return res.status(400).send("Spam detected.");
+        }
+
         // Extract form data
         const { emailName, emailAddress, emailContent } = req.body;
 
@@ -135,8 +141,8 @@ app.post('/email', async (req, res) => {
         console.error("Error sending email:", error);
         res.status(500).send("Failed to send email.");
     }
-}
-);
+});
+
 
 // keep this at the bottom
 app.listen(3000, () => {
