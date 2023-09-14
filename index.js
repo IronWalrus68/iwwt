@@ -143,13 +143,22 @@ app.post('/email', emailLimiter, async (req, res) => {
         await transporter.sendMail(mailOptions);
 
         // Send a response to the client
-        res.status(200).send("Email sent successfully!");
+        res.status(200).redirect("/emailSuccess");
     } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).send("Failed to send email.");
+        console.error("Error redirecting email:", error);
+        res.status(500).redirect("/emailFail");
     }
 });
 
+app.get('/emailSuccess', (req, res) => {
+    const title = "Email Success!"
+    res.render('emailSentSuccess', { title})
+})
+
+app.get('/emailFail', (req, res) => {
+    const title = "Email Failed to send :("
+    res.render('emailSentFail', { title})
+})
 
 // keep this at the bottom
 app.listen(3000, () => {
