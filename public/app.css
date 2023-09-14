@@ -47,6 +47,16 @@ footer{ /* add some space to the footer so it's not scrunched up */
     background-color: #000;
     border-radius: 10px;
   }
+  a {
+    color: #FFFFFF;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #FFD700; /* Gold for hover effect */
+    text-decoration: underline; /* Underline on hover */
+}
+
 /* ---------------------------------------------------------------------------------------------------- */
 
 /* project grid container / mobile reshuffle */

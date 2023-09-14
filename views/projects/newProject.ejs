@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>New Project!</h1>
     <form action="/projects" method="post">
-    <br>
-    <label for="projectName">project Name</label>
-    <br>
-    <input type="text" name="projectName" id="projectName" required>
-    <br>
-    <label for="projectImg">project Img (url)</label>
-    <br>
-    <input type="text" name="projectImg" id="projectImg" required>
-    <br>
-     <input type="text" id="projectImg" placeholder="Enter image URL here" name="projectImg" oninput="updateImage(this.value)">
-    <br>
-    <label for="projectLink">project Link</label>
-    <br>
-    <input type="text" name="projectLink" id="projectLink">
-    <br>
-    <label for="liveSiteLink">live Site Link"</label>
-    <br>
-    <input type="text" name="liveSiteLink" id="liveSiteLink">
-    <br>
-    <label for="isHighLighted">Highlight:</label>
-    <input type="checkbox" id="isHighLighted" name="isHighLighted" value="false">
-    <br>
-     <br>
-    <label for="password">Password</label>
-    <br>
-    <input type="password" name="password" id="password" required>
-    <button>Make New Project.</button>
+        <br>
+        <label for="projectName">project Name</label>
+        <br>
+        <input type="text" name="projectName" id="projectName" required>
+        <br>
+        <label for="projectImg">project Img (url)</label>
+        <br>
+        <input type="text" name="projectImg" id="projectImg" required>
+        <br>
+        <input type="text" id="projectImg" placeholder="Enter image URL here" name="projectImg"
+            oninput="updateImage(this.value)">
+        <br>
+        <label for="projectLink">project Link</label>
+        <br>
+        <input type="text" name="projectLink" id="projectLink">
+        <br>
+        <label for="liveSiteLink">live Site Link"</label>
+        <br>
+        <input type="text" name="liveSiteLink" id="liveSiteLink">
+        <br>
+        <label for="isHighLighted">Highlight:</label>
+        <input type="checkbox" id="isHighLighted" name="isHighLighted" value="false">
+        <br>
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input type="password" name="password" id="password" required>
+        <button>Make New Project.</button>
     </form>
     <a href="/projects/index">back</a>
     <br>
-<img id="displayImage" src="" alt="Image will display here">
+    <img id="displayImage" src="" alt="Image will display here">
 
-<script>
-    function updateImage(imageUrl) {
-        if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png') || imageUrl.endsWith('.gif')) {
-            document.getElementById('displayImage').src = imageUrl;
-        } else {
-            // Optional: You can provide feedback to user if the link isn't a valid image URL
+    <script>
+        function updateImage(imageUrl) {
+            if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.png') || imageUrl.endsWith('.gif')) {
+                document.getElementById('displayImage').src = imageUrl;
+            } else {
+                // Optional: You can provide feedback to user if the link isn't a valid image URL
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>

@@ -1,22 +1,41 @@
 <%- include('./partials/head') %>
-<%- include('./partials/navbar') %>
-<div class="sidePaddingWrapper">
-<h1>Contact</h1>
-<div class="textPaddingWrapper">
-    <ul>
-        <li>Email: Camsjobhunting@gmail.com</li>
-        <li>Telegram: +44 7763 403 312</li>
-        <li><a href="https://github.com/IronWalrus68">Github</a></li>
-        <li><a href="https://twitter.com/IWWTuk">Twitter</a></li>
-        <li><a href="https://www.linkedin.com/in/cameron-jackson-964a32171/">Linkedin</a></li>
-        <li>Discord: IronWalrus68</li>
-    </ul>
-</div>
-    <h2>About Me</h2>
-        <p class="textPaddingWrapper">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis veniam temporibus dolorem ex odio deserunt accusantium aperiam, unde expedita voluptatem fugiat, facere sunt adipisci ipsa et magni ipsam exercitationem totam?
-        Delectus excepturi recusandae minima aperiam dolor in hic deserunt iste necessitatibus corrupti odio dolorum id praesentium, itaque error soluta? Eius quasi iste id cumque quidem obcaecati exercitationem fugit animi dolorum.
-        Ratione numquam provident modi dignissimos deleniti, at eveniet beatae cumque possimus ullam vitae architecto, quidem omnis, adipisci in tempore dolores ex assumenda necessitatibus corrupti nisi doloribus. Deleniti ipsum sed molestiae.</p>
-    <h2>Hire Me</h2>
-        <p class="textPaddingWrapper">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia beatae accusamus autem quos culpa eius perferendis sunt praesentium ipsa officiis? Nulla totam quos praesentium odio delectus doloremque odit nesciunt perferendis?</p>
-</div>
-<%- include('./partials/footer') %>
+    <%- include('./partials/navbar') %>
+        <div class="sidePaddingWrapper">
+            <h1>Contact</h1>
+            <div class="textPaddingWrapper">
+                <ul>
+                    <li>Email: Camsjobhunting@gmail.com</li>
+                    <li>Telegram: +44 7763 403 312</li>
+                    <li><a href="https://github.com/IronWalrus68">Github</a></li>
+                    <li><a href="https://twitter.com/IWWTuk">Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/in/cameron-jackson-964a32171/">Linkedin</a></li>
+                    <li>Discord: IronWalrus68</li>
+                </ul>
+            </div>
+            <h2>About Me</h2>
+            <p class="textPaddingWrapper">I'm a web developer from the UK, currently diving into the MERN stack. My
+                toolkit includes GitBash, Node.js, and Mongoose. I'm passionate about learning and growing in this
+                dynamic field. Every challenge is an opportunity for me to learn something new. While I'm still on my
+                journey of mastering the intricacies of web development, I approach each project with dedication and a
+                keen desire to improve. My aim? To build web solutions that are both functional and user-friendly.</p>
+            <h2>Email me!</h2>
+            <p>If you're intrested in hiring me or you'd like to get in contact with me please use the email for below
+                or use on the other other methods provided.</p>
+            <form action="/email" method="post">
+                <label for="emailName">Your Name</label>
+                <br>
+                <input type="text" name="emailName" id="emailName" required>
+                <br>
+                <label for="emailAddress">Your Email Address</label>
+                <br>
+                <input type="email" name="emailAddress" id="emailAddress" required>
+                <br>
+                <label for="emailContent">Enter your email content here</label>
+                <br>
+                <textarea id="emailContent" name="emailContent" rows="10" cols="50"
+                    placeholder="Write your email content here..." required></textarea>
+                <br>
+                <button>Send</button>
+            </form>
+        </div>
+        <%- include('./partials/footer') %>
