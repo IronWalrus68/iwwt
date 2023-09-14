@@ -7,6 +7,7 @@ let potdApiData;
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const nodemailer = require('nodemailer')
+const rateLimit = require("express-rate-limit");
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(methodOverride('_method'))
@@ -23,6 +24,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/iwwt')
 app.use('/fonts', express.static(path.join(__dirname, 'node_modules', 'Poppins')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const emailLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // limit each IP to 5 requests per windowMs
+  message: "Too many email requests created from this IP, please try again after 15 minutes"
+});
 
 // email form
 const transporter = nodemailer.createTransport({
@@ -110,7 +117,7 @@ app.delete('/projects/:id', async (req, res) => {
     } else { res.send('Password is incorrect.'); }
 })
 
-app.post('/email', async (req, res) => {
+app.post('/email', emailLimiter, async (req, res) => {
     try {
         // Check for honeypot
         if (req.body.honeypot) {
