@@ -110,7 +110,7 @@ app.put('/projects/:id', async (req, res) => {
 
 app.delete('/projects/:id', async (req, res) => {
     const { password } = req.body;
-    if (password === 'password') {
+    if (password === privateKeys.password) {
         const { id } = req.params;
         const deletedProjects = await Project.findByIdAndDelete(id)
         res.redirect('/projects/index')
@@ -135,7 +135,7 @@ app.post('/email', emailLimiter, async (req, res) => {
             from: emailAddress,              // sender address from the form
             to: "camsjobhunting@gmail.com",  // your address
             subject: `Message from ${emailName}`, // Subject line
-            text: emailContent,      // plain text body
+            text: `response address: ${emailName}, Content: ${emailContent}`,      // plain text body
             // html: "<p>Email Content in HTML if needed</p>", // If you want to send HTML content
         };
 
