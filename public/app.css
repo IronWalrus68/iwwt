@@ -11,6 +11,7 @@ body {
 footer{ /* add some space to the footer so it's not scrunched up */
     margin-top: 5vh;
     padding-top: 2vh;
+    background-color: #221d20;
 }
 /* css styles that do things */
 .sidePaddingWrapper{ /* add's padding either side of the children. used for creating space */
