@@ -230,6 +230,31 @@ a:hover {
 #walrusWrapper .font:nth-child(5) {
     animation-delay: 0.8s, 0.8s;
 }
+
+/* mobile display */
+@media (max-width: 747px) {
+ #walrusWrapper{
+  animation: none;
+  top: -20px;
+  left: 28%;
+  width: 185px;
+  background-color: #0000;
+ }
+
+.asciRus{
+  font-size: 1.8rem;
+}
+
+#openingHeaderShadow{
+  top: 0;
+  height: 43.5rem;
+}
+
+#openingHeader h1, #openingHeader h2, #openingHeader p{
+z-index: 10;
+}
+#openingHeader p{max-width: 60%;}
+}
 /* ---------------------------------------------------------------------------------------------------- */
 /* home page content */
 

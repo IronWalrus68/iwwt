@@ -135,7 +135,7 @@ app.post('/email', emailLimiter, async (req, res) => {
             from: emailAddress,              // sender address from the form
             to: "camsjobhunting@gmail.com",  // your address
             subject: `Message from ${emailName}`, // Subject line
-            text: `response address: ${emailName}, Content: ${emailContent}`,      // plain text body
+            text: `response address: ${emailAddress}, Content: ${emailContent}`,      // plain text body
             // html: "<p>Email Content in HTML if needed</p>", // If you want to send HTML content
         };
 
