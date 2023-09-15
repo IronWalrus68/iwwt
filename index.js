@@ -160,6 +160,16 @@ app.get('/emailFail', (req, res) => {
     res.render('emailSentFail', { title})
 })
 
+app.get('/api/all', async (req, res)=>{
+    const projectData = await Project.find({})
+    res.send({ projectData })
+})
+
+app.get('/api/:id', async (req, res)=>{
+    const { id } = req.params;
+    const projectData = await Project.findById(id)
+    res.send({ projectData })
+})
 // keep this at the bottom
 app.listen(3000, () => {
     console.log('listening on port 3000')
