@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const Project = require('./models/projects');
-const privateKeys = require('./privateKeys')
+// const privateKeys = require('./privateKeys')
 let potdApiData;
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         user: "camsjobhunting@gmail.com",
-        pass: privateKeys.gmailKey,
+        pass: process.env.gmailKey,
     },
 });
 
@@ -65,7 +65,7 @@ app.get('/info', (req, res) => {
 
 app.get('/potd', async (req, res) => {
     const title = 'Picture of the day'
-    if (!potdApiData) potdApiData = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${privateKeys.potdKey}`).then(d => d.json())
+    if (!potdApiData) potdApiData = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.potdKey}`).then(d => d.json())
     const potdData = potdApiData
     res.render('potd', { title, potdData })
 })
@@ -110,7 +110,7 @@ app.put('/projects/:id', async (req, res) => {
 
 app.delete('/projects/:id', async (req, res) => {
     const { password } = req.body;
-    if (password === privateKeys.password) {
+    if (password === process.env.password) {
         const { id } = req.params;
         const deletedProjects = await Project.findByIdAndDelete(id)
         res.redirect('/projects/index')
