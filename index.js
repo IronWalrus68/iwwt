@@ -4,7 +4,8 @@ const path = require('path')
 const Project = require('./models/projects');
 // const privateKeys = require('./privateKeys')
 let potdApiData;
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+const projectsData = require('./projectsData.json')
 const methodOverride = require('method-override')
 const nodemailer = require('nodemailer')
 const rateLimit = require("express-rate-limit");
@@ -12,14 +13,14 @@ const rateLimit = require("express-rate-limit");
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(methodOverride('_method'))
 
-mongoose.connect('mongodb://127.0.0.1:27017/iwwt')
-    .then(() => {
-        console.log('Connection Open')
-    })
-    .catch(err => {
-        console.log('error connecting')
-        console.log(err)
-    })
+// mongoose.connect('mongodb://127.0.0.1:27017/iwwt')
+//     .then(() => {
+//         console.log('Connection Open')
+//     })
+//     .catch(err => {
+//         console.log('error connecting')
+//         console.log(err)
+//     })
 
 app.use('/fonts', express.static(path.join(__dirname, 'node_modules', 'Poppins')));
 app.use(express.json());
@@ -48,13 +49,15 @@ app.set('views', path.join(__dirname, '/views'))
 
 app.get('/', async (req, res) => {
     const title = "Home 🏠"
-    const pData = await Project.find({})
+    // const pData = await Project.find({})
+    const pData = projectsData
     res.render('home', { title, pData })
 })
 
 app.get('/Projects', async (req, res) => {
     const title = "Projects 🗄️"
-    const pData = await Project.find({})
+    // const pData = await Project.find({})
+    const pData = projectsData
     res.render('Projects', { title, pData })
 })
 
@@ -75,47 +78,47 @@ app.get('/api', (req, res) => {
     res.render('api', { title })
 })
 // projects back end api stuffs
-app.get('/projects/index', async (req, res) => {
-    const projectData = await Project.find({})
-    res.render('projects/indexProject', { projectData })
-})
+// app.get('/projects/index', async (req, res) => {
+//     const projectData = await Project.find({})
+//     res.render('projects/indexProject', { projectData })
+// })
 
-app.get('/projects/new', (req, res) => {
-    res.render('projects/newProject')
-})
+// app.get('/projects/new', (req, res) => {
+//     res.render('projects/newProject')
+// })
 
-app.post('/projects', async (req, res) => {
-    const { password } = req.body;
-    if (password === 'password') {
-        const newProject = new Project(req.body);
-        await newProject.save()
-        res.redirect('projects/index')
-    } else { res.send('Password is incorrect.'); }
-})
+// app.post('/projects', async (req, res) => {
+//     const { password } = req.body;
+//     if (password === 'password') {
+//         const newProject = new Project(req.body);
+//         await newProject.save()
+//         res.redirect('projects/index')
+//     } else { res.send('Password is incorrect.'); }
+// })
 
-app.get('/projects/:id/edit', async (req, res) => {
-    const { id } = req.params;
-    const projectData = await Project.findById(id)
-    res.render('projects/editProject', { projectData })
-})
+// app.get('/projects/:id/edit', async (req, res) => {
+//     const { id } = req.params;
+//     const projectData = await Project.findById(id)
+//     res.render('projects/editProject', { projectData })
+// })
 
-app.put('/projects/:id', async (req, res) => {
-    const { password } = req.body;
-    if (password === 'password') {
-        const { id } = req.params;
-        const update = await Project.findByIdAndUpdate(id, req.body, { runValidators: true, new: true })
-        res.redirect('/projects/index')
-    } else { res.send('Password is incorrect.'); }
-})
+// app.put('/projects/:id', async (req, res) => {
+//     const { password } = req.body;
+//     if (password === 'password') {
+//         const { id } = req.params;
+//         const update = await Project.findByIdAndUpdate(id, req.body, { runValidators: true, new: true })
+//         res.redirect('/projects/index')
+//     } else { res.send('Password is incorrect.'); }
+// })
 
-app.delete('/projects/:id', async (req, res) => {
-    const { password } = req.body;
-    if (password === process.env.password) {
-        const { id } = req.params;
-        const deletedProjects = await Project.findByIdAndDelete(id)
-        res.redirect('/projects/index')
-    } else { res.send('Password is incorrect.'); }
-})
+// app.delete('/projects/:id', async (req, res) => {
+//     const { password } = req.body;
+//     if (password === process.env.password) {
+//         const { id } = req.params;
+//         const deletedProjects = await Project.findByIdAndDelete(id)
+//         res.redirect('/projects/index')
+//     } else { res.send('Password is incorrect.'); }
+// })
 
 app.post('/email', emailLimiter, async (req, res) => {
     try {
@@ -160,17 +163,24 @@ app.get('/emailFail', (req, res) => {
     res.render('emailSentFail', { title})
 })
 
-app.get('/api/all', async (req, res)=>{
-    const projectData = await Project.find({})
-    res.send({ projectData })
-})
+// app.get('/api/all', async (req, res)=>{
+//     const projectData = await Project.find({})
+//     res.send({ projectData })
+// })
 
-app.get('/api/:id', async (req, res)=>{
-    const { id } = req.params;
-    const projectData = await Project.findById(id)
-    res.send({ projectData })
-})
-// keep this at the bottom
-app.listen(3000, () => {
-    console.log('listening on port 3000')
-})
+// app.get('/api/:id', async (req, res)=>{
+//     const { id } = req.params;
+//     const projectData = await Project.findById(id)
+//     res.send({ projectData })
+// })
+
+// // keep this at the bottom
+// app.listen(3000, () => {
+//     console.log('listening on port 3000')
+// })
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
+});

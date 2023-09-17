@@ -57,7 +57,17 @@ a:hover {
     color: #FFD700; /* Gold for hover effect */
     text-decoration: underline; /* Underline on hover */
 }
-
+.infoBanner{
+  width: 100vw;
+  height: 2rem;
+  background-color: #FFD700;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+    top: 3.5rem;
+}
 /* ---------------------------------------------------------------------------------------------------- */
 
 /* project grid container / mobile reshuffle */

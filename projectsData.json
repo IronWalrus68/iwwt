@@ -1,0 +1,38 @@
+{
+    "project1":{
+        "projectName": "TrippleWalrus",
+        "projectImg": "/images/TrippleWalrus.png",
+        "githubLink": "https://github.com/IronWalrus68/trippleWalrus",
+        "liveSiteLink": "https://ironwalrus68.github.io/trippleWalrus/"
+    },
+    "project2":{
+        "projectName": "Magic8Ball",
+        "projectImg": "/images/Magic8Ball.png",
+        "githubLink": "https://github.com/IronWalrus68/Magic8Ball",
+        "liveSiteLink": "https://ironwalrus68.github.io/Magic8Ball/"
+    },
+    "project3":{
+        "projectName": "score-keeper",
+        "projectImg": "/images/score-keeper.png",
+        "githubLink": "https://github.com/IronWalrus68/score-keeper",
+        "liveSiteLink": "https://ironwalrus68.github.io/score-keeper/"
+    },
+    "project4":{
+        "projectName": "tv_api_demo",
+        "projectImg": "/images/TVmaze_api_Demo.png",
+        "githubLink": "https://github.com/IronWalrus68/tv_api_demo",
+        "liveSiteLink": "https://ironwalrus68.github.io/tv_api_demo/"
+    },
+    "project5":{
+        "projectName": "IWWT-Portoli",
+        "projectImg": "/images/IWWT-portolio.png",
+        "githubLink": "https://github.com/IronWalrus68/IWWT-Portfoli",
+        "liveSiteLink": "https://ironwalrus68.github.io/IWWT-Portfoli/"
+    },
+    "project6":{
+        "projectName": "skyrim-roulette",
+        "projectImg": "/images/skyrim-roulette.png",
+        "githubLink": "https://github.com/IronWalrus68/skyrim-roulette",
+        "liveSiteLink": "https://ironwalrus68.github.io/skyrim-roulette/"
+    }
+}
