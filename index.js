@@ -9,6 +9,7 @@ const projectsData = require('./projectsData.json')
 const methodOverride = require('method-override')
 const nodemailer = require('nodemailer')
 const rateLimit = require("express-rate-limit");
+require('dotenv').config()
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(methodOverride('_method'))
@@ -28,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const emailLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 1, // limit each IP to 5 requests per windowMs
+  max: 1, // limit each IP to 1 requests per windowMs
   message: "Too many email requests created from this IP, please try again after 15 minutes"
 });
 
@@ -43,6 +44,7 @@ const transporter = nodemailer.createTransport({
         pass: process.env.gmailKey,
     },
 });
+    // console.log(process.env.gmailKey)
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
@@ -131,7 +133,7 @@ app.post('/email', emailLimiter, async (req, res) => {
         // Extract form data
         const { emailName, emailAddress, emailContent } = req.body;
 
-        console.log(emailName, emailAddress, emailContent)
+        console.log(`users name: ${emailName} -| users email: ${emailAddress} -| users message: ${emailContent}`)
 
         // Set up email data
         const mailOptions = {

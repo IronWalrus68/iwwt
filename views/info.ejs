@@ -17,22 +17,56 @@
             <h2>Email me!</h2>
             <p>If you're intrested in hiring me or you'd like to get in contact with me please use the email for below
                 or use on the other other methods provided.</p>
-            <form action="/email" method="post">
-                <label for="emailName">Your Name</label>
-                <br>
-                <input type="text" name="emailName" id="emailName" required>
-                <br>
-                <label for="emailAddress">Your Email Address</label>
-                <br>
-                <input type="text" name="honeypot" style="display:none;">
-                <input type="email" name="emailAddress" id="emailAddress" required>
-                <br>
-                <label for="emailContent">Enter your email content here</label>
-                <br>
-                <textarea id="emailContent" name="emailContent" rows="10" cols="50"
-                    placeholder="Write your email content here..." required></textarea>
-                <br>
-                <button>Send</button>
-            </form>
+           
+           <form action="/email" method="post" class="mb-3 needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="emailName" class="form-label">Your Name</label>
+        <input type="text" class="form-control" name="emailName" id="emailName" required>
+        <div class="invalid-feedback">
+            Please enter your name.
+        </div>
+    </div>
+    
+    <input type="text" name="honeypot" style="display:none;">
+    
+    <div class="mb-3">
+        <label for="emailAddress" class="form-label">Your Email Address</label>
+        <input type="email" class="form-control" name="emailAddress" id="emailAddress" required>
+        <div class="invalid-feedback">
+            Please enter a valid email address.
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="emailContent" class="form-label">Enter your email content here</label>
+        <textarea id="emailContent" class="form-control" name="emailContent" rows="10" placeholder="Write your email content here..." required></textarea>
+        <div class="invalid-feedback">
+            Please enter your email content.
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+<script>
+(function () {
+    'use strict'
+  
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+      
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+</script>
+
+
         </div>
         <%- include('./partials/footer') %>
